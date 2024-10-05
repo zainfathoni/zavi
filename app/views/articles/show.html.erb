@@ -10,15 +10,7 @@
   </ul>
   <h2 class="font-bold text-2xl">Comments</h2>
     <% @article.comments.each do |comment| %>
-    <p>
-      <strong>Commenter:</strong>
-      <%= comment.commenter %>
-    </p>
-
-    <p>
-      <strong>Comment:</strong>
-      <%= comment.body %>
-    </p>
+    <%= render @article.comments %>
   <% end %>
   <h2 class="font-bold text-2xl">Add a comment</h2>
   <%= tailwind_form_with model: [ @article, @article.comments.build ] do |form| %>
