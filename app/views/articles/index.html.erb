@@ -1,10 +1,11 @@
 <div>
   <h1 class="font-bold text-4xl">Articles#index</h1>
-  <ul>
+  <ul class="list-disc pl-4">
     <% @articles.each do |article| %>
       <li>
-        <%= link_to article.title, article %>
+        <%= link_to article.title, article, class: "text-blue-500 hover:text-blue-700" %>
       </li>
     <% end %>
   </ul>
+  <%= link_to "New Article", new_article_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
 </div>
