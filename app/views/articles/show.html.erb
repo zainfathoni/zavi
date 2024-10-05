@@ -2,8 +2,8 @@
   <h1 class="font-bold text-4xl"><%= @article.title %></h1>
   <p><%= @article.body %></p>
   <ul>
-  <li><%= link_to "Edit", edit_article_path(@article) %></li>
-  <li><%= link_to "Destroy", article_path(@article), data: {
+  <li class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 hover:bg-gray-100"><%= link_to "Edit", edit_article_path(@article) %></li>
+  <li class="inline-flex items-center rounded-md bg-gray-50 px-2 py-1 text-xs font-medium text-gray-600 hover:bg-gray-100"><%= link_to "Destroy", article_path(@article), data: {
     turbo_method: :delete,
     turbo_confirm: "Are you sure?"
   } %></li>
