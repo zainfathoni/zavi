@@ -1,18 +1,19 @@
 <% unless comment.archived? %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
-
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-
-  <p>
-    <%= link_to "Destroy Comment", [comment.article, comment], data: {
-                  turbo_method: :delete,
-                  turbo_confirm: "Are you sure?"
-                } %>
-  </p>
+  <figure class="mb-8">
+    <blockquote class="text-base font-semibold leading-7 tracking-tight text-gray-900">
+      <p>"<%= comment.body %>"</p>
+    </blockquote>
+    <figcaption class="mt-6 flex items-center gap-x-4">
+      <div class="text-sm leading-6">
+        <div class="font-semibold text-gray-900"><%= comment.commenter %></div>
+        <div class="text-gray-600"><%= time_ago_in_words(comment.created_at) %> ago</div>
+      </div>
+    </figcaption>
+    <div class="mt-2">
+      <%= link_to "Delete", [comment.article, comment], data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      }, class: "text-sm text-red-600 hover:text-red-500" %>
+    </div>
+  </figure>
 <% end %>
